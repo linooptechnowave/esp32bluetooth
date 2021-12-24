@@ -29,7 +29,7 @@ public class BTUtil {
     public static final char POWER_OFF = 'h';
     public static final char RESET = 'i';
     public static final int BT_ENABLE_REQUEST_CODE = 100;
-    public static final String PRINTER_UUID = "00001101-0000-1000-8000-00805f9b34fb";
+    public static final String DEVICE_UUID = "00001101-0000-1000-8000-00805f9b34fb";
     @SuppressLint("StaticFieldLeak")
     private static BTUtil btUtilInstance;
     private final Activity activity;
@@ -118,7 +118,7 @@ public class BTUtil {
             try {
                 if (bluetoothDevice != null) {
                     //Old code
-                    UUID uuid = UUID.fromString(PRINTER_UUID);
+                    UUID uuid = UUID.fromString(DEVICE_UUID);
                     bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(uuid);
                     bluetoothSocket.connect();
                     outputStream = bluetoothSocket.getOutputStream();
@@ -145,10 +145,10 @@ public class BTUtil {
             } finally {
                 handler.post(() -> {
                     if (isConnected) {
-                        conveyorListener.onDeviceConnected(true, "Printer connected successfully", bluetoothDevice);
+                        conveyorListener.onDeviceConnected(true, "Device connected successfully", bluetoothDevice);
                         BTPrefManager.getInstance(activity).saveDeviceMacAddress(bluetoothDevice.getAddress());
                     } else {
-                        conveyorListener.onDeviceConnected(false, "Failed to connect printer!", bluetoothDevice);
+                        conveyorListener.onDeviceConnected(false, "Failed to connect device!", bluetoothDevice);
                     }
                 });
             }
@@ -233,14 +233,14 @@ public class BTUtil {
                     /*connection.close();
                     Looper.myLooper().quit();*/
                     isConnected = false;
-                    Log.d("printer connection", "Device disconnected successfully");
+                    Log.d("Device connection", "Device disconnected successfully");
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
                     handler.post(() -> {
                         if (isConnected) {
                             conveyorListener.onDeviceDisconnected(false, "Failed to disconnect!!");
-                            Log.d("printer connection", "Failed to disconnect!!");
+                            Log.d("Device connection", "Failed to disconnect!!");
                         } else {
                             conveyorListener.onDeviceDisconnected(true, "Device disconnected successfully");
                         }
