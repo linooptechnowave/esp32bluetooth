@@ -2,7 +2,7 @@ package com.technowavegroup.printerlib;
 
 import android.bluetooth.BluetoothDevice;
 
-public interface ConveyorListener {
+public interface BTListener {
 
     void onDeviceConnected(boolean isConnected, String statusMessage, BluetoothDevice bluetoothDevice);
 

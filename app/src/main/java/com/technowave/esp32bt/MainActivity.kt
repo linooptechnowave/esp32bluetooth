@@ -4,14 +4,12 @@ import android.bluetooth.BluetoothDevice
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.widget.*
 import com.technowavegroup.printerlib.BTUtil
-import com.technowavegroup.printerlib.BTUtil.CONVEYOR_START
-import com.technowavegroup.printerlib.ConveyorListener
+import com.technowavegroup.printerlib.BTListener
 
 class MainActivity : AppCompatActivity(),
-    ConveyorListener {
+    BTListener {
     private lateinit var btUtil: BTUtil
     private lateinit var message: EditText
     private lateinit var receivedMessage: TextView
