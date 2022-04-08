@@ -171,14 +171,14 @@ public class BTUtil {
                 } finally {
                     handler.post(() -> {
                         if (driveActionSuccess)
-                            BTListener.onMotorDriveState(true, "Motor action completed");
+                            BTListener.onMotorDriveState(true, "Action completed");
                         else
-                            BTListener.onMotorDriveState(false, "Motor operation failure!!!");
+                            BTListener.onMotorDriveState(false, "Operation failure!!!");
                     });
                 }
             }).start();
         } else {
-            BTListener.onMotorDriveState(false, "Failed to connect conveyor!");
+            BTListener.onMotorDriveState(false, "Failed to connect device!");
         }
     }
 
