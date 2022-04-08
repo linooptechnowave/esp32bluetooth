@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity(),
 
         findViewById<Button>(R.id.greenOff).setOnClickListener {
             sendMessage('g')
+            //test
         }
 
         findViewById<Button>(R.id.chooseDevice).setOnClickListener {
