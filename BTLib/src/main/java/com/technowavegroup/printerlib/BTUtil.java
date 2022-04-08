@@ -171,14 +171,14 @@ public class BTUtil {
                 } finally {
                     handler.post(() -> {
                         if (driveActionSuccess)
-                            BTListener.onMotorDriveState(true, "Action completed");
+                            BTListener.onDeviceStateChange(true, "Action completed");
                         else
-                            BTListener.onMotorDriveState(false, "Operation failure!!!");
+                            BTListener.onDeviceStateChange(false, "Operation failure!!!");
                     });
                 }
             }).start();
         } else {
-            BTListener.onMotorDriveState(false, "Failed to connect device!");
+            BTListener.onDeviceStateChange(false, "Failed to connect device!");
         }
     }
 

@@ -6,7 +6,7 @@ public interface BTListener {
 
     void onDeviceConnected(boolean isConnected, String statusMessage, BluetoothDevice bluetoothDevice);
 
-    void onMotorDriveState(boolean isDriven, String motorStatus);
+    void onDeviceStateChange(boolean completed, String status);
 
     void onDeviceDisconnected(boolean isDisconnected, String statusMessage);
 

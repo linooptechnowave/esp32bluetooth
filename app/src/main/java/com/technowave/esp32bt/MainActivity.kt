@@ -100,8 +100,8 @@ class MainActivity : AppCompatActivity(),
         showErrorMessage(statusMessage)
     }
 
-    override fun onMotorDriveState(isDriven: Boolean, motorStatus: String?) {
-        showErrorMessage(motorStatus)
+    override fun onDeviceStateChange(completed: Boolean, status: String?) {
+        showErrorMessage(status)
     }
 
     override fun onDeviceDisconnected(isDisconnected: Boolean, statusMessage: String?) {
