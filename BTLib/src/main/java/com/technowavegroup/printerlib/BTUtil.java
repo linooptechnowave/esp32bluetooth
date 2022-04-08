@@ -155,7 +155,7 @@ public class BTUtil {
         }).start();
     }
 
-    public void drive(char command) {
+    public void towerLight(char command) {
         handler = new Handler();
         if (bluetoothDevice != null && isConnected) {
             new Thread(() -> {

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.*
 import com.technowavegroup.printerlib.BTUtil
 import com.technowavegroup.printerlib.BTListener
+import com.technowavegroup.printerlib.Constants.BUZZER_OFF
 
 class MainActivity : AppCompatActivity(),
     BTListener {
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity(),
         }
 
         findViewById<Button>(R.id.redOff).setOnClickListener {
-            sendMessage('r')
+            sendMessage(BUZZER_OFF)
         }
 
         findViewById<Button>(R.id.greenOn).setOnClickListener {
@@ -75,7 +76,7 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun sendMessage(message: Char) {
-        btUtil.drive(message)
+        btUtil.towerLight(message)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
