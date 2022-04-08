@@ -47,7 +47,7 @@ public class BTUtil {
     private int readBufferPosition;
     private volatile boolean stopWorker;
 
-    private final ConveyorListener conveyorListener;
+    private final BTListener BTListener;
 
     /*public static synchronized BTUtil getInstance(Activity activity, PrintStatusListener printStatusListener) {
         if (btUtilInstance == null) {
@@ -56,9 +56,9 @@ public class BTUtil {
         return btUtilInstance;
     }*/
 
-    public BTUtil(Activity activity, ConveyorListener conveyorListener) {
+    public BTUtil(Activity activity, BTListener BTListener) {
         this.activity = activity;
-        this.conveyorListener = conveyorListener;
+        this.BTListener = BTListener;
         defaultDeviceMac = BTPrefManager.getInstance(activity).getDeviceMacAddress();
         findBTDevices();
     }
@@ -67,7 +67,7 @@ public class BTUtil {
         try {
             BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
             if (bluetoothAdapter == null) {
-                conveyorListener.onDeviceError("Bluetooth adapter not found!");
+                BTListener.onDeviceError("Bluetooth adapter not found!");
             }
             //assert bluetoothAdapter != null;
             if (!bluetoothAdapter.isEnabled()) {
@@ -90,7 +90,7 @@ public class BTUtil {
                     }
                 }
             } else {
-                conveyorListener.onDeviceError("No bluetooth device available!");
+                BTListener.onDeviceError("No bluetooth device available!");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -145,10 +145,10 @@ public class BTUtil {
             } finally {
                 handler.post(() -> {
                     if (isConnected) {
-                        conveyorListener.onDeviceConnected(true, "Device connected successfully", bluetoothDevice);
+                        BTListener.onDeviceConnected(true, "Device connected successfully", bluetoothDevice);
                         BTPrefManager.getInstance(activity).saveDeviceMacAddress(bluetoothDevice.getAddress());
                     } else {
-                        conveyorListener.onDeviceConnected(false, "Failed to connect device!", bluetoothDevice);
+                        BTListener.onDeviceConnected(false, "Failed to connect device!", bluetoothDevice);
                     }
                 });
             }
@@ -171,14 +171,14 @@ public class BTUtil {
                 } finally {
                     handler.post(() -> {
                         if (driveActionSuccess)
-                            conveyorListener.onMotorDriveState(true, "Motor action completed");
+                            BTListener.onMotorDriveState(true, "Motor action completed");
                         else
-                            conveyorListener.onMotorDriveState(false, "Motor operation failure!!!");
+                            BTListener.onMotorDriveState(false, "Motor operation failure!!!");
                     });
                 }
             }).start();
         } else {
-            conveyorListener.onMotorDriveState(false, "Failed to connect conveyor!");
+            BTListener.onMotorDriveState(false, "Failed to connect conveyor!");
         }
     }
 
@@ -239,16 +239,16 @@ public class BTUtil {
                 } finally {
                     handler.post(() -> {
                         if (isConnected) {
-                            conveyorListener.onDeviceDisconnected(false, "Failed to disconnect!!");
+                            BTListener.onDeviceDisconnected(false, "Failed to disconnect!!");
                             Log.d("Device connection", "Failed to disconnect!!");
                         } else {
-                            conveyorListener.onDeviceDisconnected(true, "Device disconnected successfully");
+                            BTListener.onDeviceDisconnected(true, "Device disconnected successfully");
                         }
                     });
                 }
             }).start();
         } else {
-            conveyorListener.onDeviceDisconnected(false, "Device not found");
+            BTListener.onDeviceDisconnected(false, "Device not found");
         }
     }
 }
