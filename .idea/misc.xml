@@ -6,7 +6,7 @@
         <entry key="..\:/Users/linoo/AndroidStudioProjects/ESP32BT/ConveyorBTLib/src/main/res/drawable/bg_rectangle_boarder.xml" value="0.25462962962962965" />
         <entry key="..\:/Users/linoo/AndroidStudioProjects/ESP32BT/ConveyorBTLib/src/main/res/drawable/ic_baseline_bluetooth_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/linoo/AndroidStudioProjects/ESP32BT/ConveyorBTLib/src/main/res/drawable/item_divider.xml" value="0.26614583333333336" />
-        <entry key="..\:/Users/linoo/AndroidStudioProjects/ESP32BT/ConveyorBTLib/src/main/res/layout/bt_device_list_dialog.xml" value="0.4813614262560778" />
+        <entry key="..\:/Users/linoo/AndroidStudioProjects/ESP32BT/ConveyorBTLib/src/main/res/layout/bt_device_list_dialog.xml" value="0.2" />
         <entry key="..\:/Users/linoo/AndroidStudioProjects/ESP32BT/ConveyorBTLib/src/main/res/layout/card_view_device.xml" value="0.25" />
         <entry key="..\:/Users/linoo/AndroidStudioProjects/ESP32BT/ConveyorBTLib/src/main/res/layout/device_error_dialog.xml" value="0.25" />
         <entry key="..\:/Users/linoo/AndroidStudioProjects/ESP32BT/ConveyorBTLib/src/main/res/layout/progress_dialog.xml" value="0.25" />

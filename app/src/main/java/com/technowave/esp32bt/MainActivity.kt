@@ -4,10 +4,8 @@ import android.bluetooth.BluetoothDevice
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.os.Handler
+import android.widget.*
 import com.technowavegroup.printerlib.BTUtil
 import com.technowavegroup.printerlib.BTUtil.CONVEYOR_START
 import com.technowavegroup.printerlib.ConveyorListener
@@ -25,8 +23,36 @@ class MainActivity : AppCompatActivity(),
 
         receivedMessage = findViewById(R.id.receivedMessage)
         message = findViewById(R.id.message)
-        findViewById<Button>(R.id.buttonSend).setOnClickListener {
-            sendMessage()
+        findViewById<Button>(R.id.buzzOn).setOnClickListener {
+            sendMessage('B')
+        }
+
+        findViewById<Button>(R.id.buzzOff).setOnClickListener {
+            sendMessage('b')
+        }
+
+        findViewById<Button>(R.id.redOn).setOnClickListener {
+            sendMessage('R')
+        }
+
+        findViewById<Button>(R.id.yellowOn).setOnClickListener {
+            sendMessage('Y')
+        }
+
+        findViewById<Button>(R.id.yellowOff).setOnClickListener {
+            sendMessage('y')
+        }
+
+        findViewById<Button>(R.id.redOff).setOnClickListener {
+            sendMessage('r')
+        }
+
+        findViewById<Button>(R.id.greenOn).setOnClickListener {
+            sendMessage('G')
+        }
+
+        findViewById<Button>(R.id.greenOff).setOnClickListener {
+            sendMessage('g')
         }
 
         findViewById<Button>(R.id.chooseDevice).setOnClickListener {
@@ -38,10 +64,19 @@ class MainActivity : AppCompatActivity(),
         findViewById<Button>(R.id.buttonDisconnect).setOnClickListener {
             btUtil.disconnectBTDevice()
         }
+
+        findViewById<Button>(R.id.testDevice).setOnClickListener {
+            flash()
+        }
+
     }
 
-    private fun sendMessage() {
-        btUtil.drive(CONVEYOR_START)
+    private fun flash() {
+
+    }
+
+    private fun sendMessage(message: Char) {
+        btUtil.drive(message)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

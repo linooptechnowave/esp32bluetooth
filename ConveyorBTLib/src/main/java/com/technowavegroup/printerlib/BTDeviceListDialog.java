@@ -35,7 +35,7 @@ public class BTDeviceListDialog extends AppCompatDialog implements View.OnClickL
         //setTitle("Choose device");
         //context.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         RecyclerView recyclerViewDeviceList = findViewById(R.id.recyclerViewDeviceList);
         MaterialButton save = findViewById(R.id.buttonCancel);
         Objects.requireNonNull(save).setOnClickListener(this);

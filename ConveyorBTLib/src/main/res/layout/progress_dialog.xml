@@ -57,15 +57,18 @@
 
             <TextView
                 android:id="@+id/textViewMessage"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_medium"
                 android:layout_marginEnd="@dimen/spacing_large"
                 app:layout_constraintBottom_toBottomOf="@+id/progress_circular"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/progress_circular"
                 app:layout_constraintTop_toTopOf="@+id/progress_circular"
                 tools:text="Message..." />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

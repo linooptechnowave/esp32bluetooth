@@ -16,6 +16,86 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/redOn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Red On" />
+
+            <Button
+                android:id="@+id/redOff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_weight="1"
+                android:text="Red Off" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/yellowOn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yellow On" />
+
+            <Button
+                android:id="@+id/yellowOff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_weight="1"
+                android:text="Yellow Off" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/greenOn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Green On" />
+
+            <Button
+                android:id="@+id/greenOff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_weight="1"
+                android:text="Green Off" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buzzOn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Buzz On" />
+
+            <Button
+                android:id="@+id/buzzOff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_weight="1"
+                android:text="Buzz Off" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/receivedMessage"
             android:layout_width="wrap_content"
@@ -49,11 +129,19 @@
             android:layout_height="wrap_content"
             android:text="Disconnect"
             android:textAllCaps="false" />
+
         <Button
             android:id="@+id/chooseDevice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Choose Device"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/testDevice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test Device"
             android:textAllCaps="false" />
     </LinearLayout>
 
